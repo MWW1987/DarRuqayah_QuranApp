@@ -1,0 +1,65 @@
+﻿@model User
+
+@{
+    ViewData["Title"] = "ویرایش طلبه";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h4>@Model.Name</h4>
+<hr />
+<div class="row" style="direction: rtl">
+    <div class="col-md-4 text-right">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="UserId" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tell" class="control-label"></label>
+                <input asp-for="Tell" class="form-control" />
+                <span asp-validation-for="Tell" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ParentTell" class="control-label"></label>
+                <input asp-for="ParentTell" class="form-control" />
+                <span asp-validation-for="ParentTell" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Country" class="control-label"></label>
+                <input asp-for="Country" class="form-control" />
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Birthday" class="control-label"></label>
+                <input asp-for="Birthday" type="text"  class="form-control" id="solarresult" data-ha-datetimepicker="#solarresult" data-ha-dp-issolar="true" data-ha-dp-resultinsolar="true"  />
+                <span asp-validation-for="Birthday" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HefzValue" class="control-label"></label>
+                <input asp-for="HefzValue" class="form-control" />
+                <span asp-validation-for="HefzValue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="ذخیره" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">برگشت به لیست طلاب</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

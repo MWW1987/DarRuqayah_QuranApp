@@ -1,0 +1,36 @@
+﻿@model Ostad
+@inject CalculateAgeService cas
+@inject ConvertDate cd
+
+@{
+    ViewData["Title"] = "جزئیات استاد";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card text-right" >
+    <div class="card-header">
+        مشخصات استاد 
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        <p class="card-text">اهل کشور @Model.Country میباشند</p>
+        <p class="card-text">شماره تماس:  <span class="font-weight-bold">@Model.Tell</span>   </p>
+        <p class="card-text">متولد @cd.MiladiToShamsi(Model.Birthday) و @cas.CalculateAge(Model.Birthday) سال میباشند </p>
+        <a href="#" class="btn btn-primary float-left">کلاس های استاد</a>
+    </div>
+</div>
+<hr />
+<div class="card text-right">
+    <div class="card-header">
+        خلاصه ای از فعالیت های استاد
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">@Model.CV</h5>
+        
+    </div>
+</div>
+
+
+<div class="float-right">
+    <a asp-action="Edit" asp-route-id="@Model.OstadId">ویرایش</a> |
+    <a asp-action="Index">برگشت به لیست اساتید</a>
+</div>

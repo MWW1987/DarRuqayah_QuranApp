@@ -1,0 +1,37 @@
+﻿@model IEnumerable<ClassRoom>
+
+@{
+    ViewData["Title"] = "لیست کلاس ها";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<p>
+    <a asp-action="Create">ایجاد کلاس جدید</a>
+</p>
+
+@foreach (var item in Model)
+{
+    <div class="card float-right text-right m-2" style="width: 18rem;">
+        <img src="@item.Image" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">@item.Name</h5>
+            <h5 class="card-title">نام استاد @item.Ostad.Name</h5>
+            <p class="card-text">ساعت برگذاری کلاس @item.ClassTime</p>
+            @if (item.Users == null)
+            {
+                <p class="card-text">تعداد طلاب کلاس  0</p>
+            }
+            else
+            {
+                <p class="card-text">تعداد طلاب کلاس @item.Users.Count</p>
+            }
+
+            <a href="#" class="btn btn-primary">نمایش طلاب </a>
+            <a href="#" class="btn btn-success"> افزودن طلبه </a>
+
+        </div>
+    </div>
+}
+

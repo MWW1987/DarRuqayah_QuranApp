@@ -1,0 +1,60 @@
+﻿@model Ostad
+
+@{
+    ViewData["Title"] = "حذف استاد";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-right">حذف استاد</h2>
+
+<h3 class="text-right text-danger">آیا از حذف استاد @Model.Name مطمئن هستید؟؟</h3>
+<div>
+
+    <hr />
+    <dl class="col-12 dl-horizontal float-right text-right">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tell)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tell)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Country)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Birthday)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Birthday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CV)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CV)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete" class="float-right">
+        <input type="hidden" asp-for="OstadId" />
+        <input type="submit" value="حذف استاد" class="btn btn-danger" /> |
+        <a asp-action="Index">برگشت به لیست اساتید</a>
+    </form>
+</div>

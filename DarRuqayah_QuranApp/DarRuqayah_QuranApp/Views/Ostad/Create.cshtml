@@ -1,0 +1,64 @@
+﻿@model Ostad
+@inject DarRuqayah_QuranApp.Services.ConvertDate convertDate
+@{
+    ViewData["Title"] = "ایجاد استاد جدید";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-right">ایجاد استاد جدید</h2>
+
+
+<hr />
+<div class="row" style="direction: rtl">
+    <div class="col-md-4">
+        <form asp-action="Create" class="text-right">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" placeholder="نام و نام خانوادگی استاد را وارد کنید" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tell" class="control-label"></label>
+                <input asp-for="Tell" class="form-control" placeholder="شماره تلفن استاد را واردکنید" />
+                <span asp-validation-for="Tell" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Country" class="control-label"></label>
+                <input asp-for="Country" class="form-control" placeholder="استاد اهل کدام کشور میباشد؟" />
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Birthday" class="control-label"></label>
+                @*<input type="text" class="form-control" id="solarresult" data-ha-datetimepicker="#solardate" data-ha-dp-issolar="true" data-ha-dp-resultinsolar="true" />*@
+                <input asp-for="Birthday" type="text" class="form-control" id="solarresult" placeholder="تاریخ تولد را انتخاب کنید" data-ha-datetimepicker="#solarresult" data-ha-dp-issolar="true" data-ha-dp-resultinsolar="true" />
+                @*<input asp-for="Birthday" class="form-control" id="persianDatePickerHidden" hidden />*@
+                <span asp-validation-for="Birthday" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <textarea asp-for="Address" placeholder="لطفا آدرس را وارد کنید" class="form-control"></textarea>
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CV" class="control-label"></label>
+                <textarea asp-for="CV" placeholder="خلاصه ای از سوابق استاد را بنویسید" class="form-control"></textarea>
+                <span asp-validation-for="CV" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="ایجاد استاد" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">بازگشت به لیست اساتید</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+
+}
+
